@@ -15,12 +15,8 @@ const protect = async (req, res, next) => {
       return res.status(401).json({ message: 'Invalid token' });
     }
 
-const { createClient } = require('@supabase/supabase-js');
-
     // Create a Supabase client scoped to this user's token so RLS works properly
-    const userSupabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY, {
-      global: { headers: { Authorization: `Bearer ${token}` } }
-    });
+    const userSupabase = supabase.createUserScopedClient(token);
 
     // Get profile from profiles table
     const { data: profile, error: profileError } = await userSupabase

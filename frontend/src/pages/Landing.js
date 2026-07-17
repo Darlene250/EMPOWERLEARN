@@ -41,14 +41,6 @@ const Landing = () => {
       <div className="stats-strip">
         <div className="stats-inner">
           <div className="stat-item">
-            <div className="stat-num">12<span>k</span></div>
-            <div className="stat-desc">Women enrolled across Africa</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-num">4<span>+</span></div>
-            <div className="stat-desc">Countries reached</div>
-          </div>
-          <div className="stat-item">
             <div className="stat-num">100<span>%</span></div>
             <div className="stat-desc">Free to access</div>
           </div>

@@ -102,10 +102,11 @@ html {
 .hero-bg {
   background-image: url('../public/background.png');
   background-size: cover;
-  background-position: center top;
+  background-position: center 18%;
   background-repeat: no-repeat;
   position: relative;
   background-color: var(--purple-pale); /* Fallback */
+  filter: saturate(1.08);
 }
 
 /* Dark overlay so text stays readable over the image */
@@ -113,7 +114,8 @@ html {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: brightness(1.08) saturate(1.05);
 }
 
 .hero {
@@ -211,21 +213,13 @@ html {
   margin: 0 auto;
   padding: 0 48px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
 }
 
 .stat-item {
   padding: 36px 0;
-  border-right: 1px solid var(--border);
-}
-
-.stat-item:last-child {
   border-right: none;
-  padding-left: 48px;
-}
-
-.stat-item:not(:first-child) {
-  padding-left: 48px;
+  text-align: center;
 }
 
 .stat-num {

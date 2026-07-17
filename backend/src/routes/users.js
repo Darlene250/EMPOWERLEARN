@@ -1,12 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { createClient } = require('@supabase/supabase-js');
+const supabase = require('../supabase');
 const { protect } = require('../middleware/auth');
 
 // Helper to create a user-scoped client
-const getUserClient = (token) => createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY, {
-  global: { headers: { Authorization: `Bearer ${token}` } }
-});
+const getUserClient = (token) => supabase.createUserScopedClient(token);
 
 // Get my profile
 router.get('/profile', protect, async (req, res) => {
